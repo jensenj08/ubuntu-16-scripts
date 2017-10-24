@@ -1,0 +1,78 @@
+#!/bin/bash
+#
+# Install Docker CE (Community Edition)
+# docker-ce
+#  
+# OS: Ubuntu 16.04.3 LTS
+# Author: Jeffrey Jensen
+# Email: jensenj08@gmail.com
+#
+# Description:
+# This installation script will remove old
+# versions of docker and install docker
+# community edition.
+#
+# This installation will setup docker's 
+# repositories and install from them so
+# that instalation and upgrade tasks
+# are much easier. Generally, this is
+# what most other people do.
+#
+# This script is setup for and64 machines.
+# 
+##############################################
+
+# Update apt package index.
+apt-get update
+
+# Older versions of docker were called docker 
+# or docker-engine. If these are installed, 
+# they need to be removed.
+apt-get remove docker docker-engine docker.io
+
+# Install packages to allow apt to use a
+# repository over HTTPS
+apt-get install \
+    apt-transport-https \
+    ca-certificates \ 
+    curl \
+    software-properties-common
+
+# Add docker's official GPG key: 
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
+
+# Optionally, the key can be verfied with
+# apt-key fingerprint 0EBFCD88
+
+# Setup a stable repository. You will always 
+# need the stable repository even if you want
+# to install builds from other repositories.
+#
+# If you need to install for a different
+# archetecture, simply replace amd64. 
+# Available arch: 
+#   - armhf
+#   - amd64
+#   - s390x
+add-apt-repository \
+    "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+     $(lsb_release -cs) \
+     stable"
+
+# Install docker-ce.
+apt-get update
+# On production systems, you should install a 
+# specific version of docker-ce instead of just
+# using the newest version. 
+# apt-get install docker-ce=<VERSION>
+apt-get install docker-ce
+
+echo "--------------------------------------------------"
+echo "Docker installation is complete."
+echo "Verify Docker CE is installed properly by running:" 
+echo "docker run hello-world"
+echo "--------------------------------------------------"
+
+
+
+

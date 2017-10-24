@@ -1,0 +1,23 @@
+#!/bin/bash
+#
+# Install Git
+# git
+#
+# OS: Ubuntu 16.04.3 LTS
+# Author: Jeffrey Jensen
+# Email: jensenj08@gmail.com
+# 
+# Description: 
+# Install git and setup the basic
+# user information 
+########################################
+
+# Configuration Values for:
+# --global user.email
+# --global user.name
+EMAIL="jensenj08@gmail.com"
+NAME="Jeffrey Jensen"
+
+# Install git
+apt-get update
+apt-get install git
