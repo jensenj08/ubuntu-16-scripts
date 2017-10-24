@@ -15,9 +15,20 @@
 # Configuration Values for:
 # --global user.email
 # --global user.name
-EMAIL="jensenj08@gmail.com"
-NAME="Jeffrey Jensen"
+# We want to get these values before 
+# running the installation, so that the user
+# can ignore the script until it's finished. 
+echo "Select an email to be associated with your git commits."
+echo "git config --global user.email <your@email.address>:"
+read EMAIL
+
+echo "Select a name to be associated with your git commits."
+echo "git config --global user.name <your name>:"
+read NAME
 
 # Install git
 apt-get update
 apt-get install git
+
+git config --global user.email $EMAIL
+git config --global user.name $NAME

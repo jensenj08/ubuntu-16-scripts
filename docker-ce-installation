@@ -72,7 +72,3 @@ echo "Docker installation is complete."
 echo "Verify Docker CE is installed properly by running:" 
 echo "docker run hello-world"
 echo "--------------------------------------------------"
-
-
-
-
