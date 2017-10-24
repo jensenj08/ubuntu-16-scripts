@@ -8,18 +8,30 @@ Included so far:
 To install git, first copy the script to the remote server, and then run the install-git script as root.
 
 1. Copy the script to the remote server.
-$ cd <path-to-this-repository>
-$ scp install-git <username>@<server-address>:/home/username/
+```
+cd <path-to-this-repository>
+scp install-git <username>@<server-address>:/home/username/
+```
 2. Connect to the remote server
-$ ssh <username>@<server-address>
+```
+ssh <username>@<server-address>
+```
 3. Run the script
-$ sudo ./install-git
+```
+sudo ./install-git
+```
 
 # install-docker
 1. Copy the script to the remote server.
-$ cd <path-to-this-repository>
-$ scp install-docker-ce <username>@<server-address>:/home/username/
+```
+cd <path-to-this-repository>
+scp install-docker-ce <username>@<server-address>:/home/username/
+```
 2. Connect to the remote server
-$ ssh <username>@<server-address>
+```
+ssh <username>@<server-address>
+```
 3. Run the script
-$ sudo ./install-docker-ce
+```
+sudo ./install-docker-ce
+```
