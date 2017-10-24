@@ -1,15 +1,15 @@
 # ubuntu-16-scripts
 These are my current scripts that I'm using to setup my ubuntu server environments. Generally these are for the sake of learning and reference. 
 Included so far: 
-- Docker Installer (install-docker-ce)
-- Git Installer (install-git)
+1. Git Installer (install-git)
+2. Docker Installer (install-docker-ce)
 
-# install-git
+# 1. install-git
 To install git, first copy the script to the remote server, and then run the install-git script as root.
 
 1. Copy the script to the remote server.
 ```
-cd <path-to-this-repository>
+cd <path-to-this-repository>/git
 scp install-git <username>@<server-address>:/home/username/
 ```
 2. Connect to the remote server
@@ -21,10 +21,10 @@ ssh <username>@<server-address>
 sudo ./install-git
 ```
 
-# install-docker
+# 2.  install-docker
 1. Copy the script to the remote server.
 ```
-cd <path-to-this-repository>
+cd <path-to-this-repository>/docker-ce
 scp install-docker-ce <username>@<server-address>:/home/username/
 ```
 2. Connect to the remote server
