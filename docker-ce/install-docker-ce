@@ -42,7 +42,7 @@ sudo apt-get -y install \
     software-properties-common
 
 # Add docker's official GPG key: 
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
 
 # Optionally, the key can be verfied with
 # apt-key fingerprint 0EBFCD88
@@ -57,7 +57,7 @@ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
 #   - armhf
 #   - amd64
 #   - s390x
-add-apt-repository \
+sudo add-apt-repository \
     "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
      $(lsb_release -cs) \
      stable"
