@@ -10,7 +10,8 @@
 # Description:
 # Install fail2ban and configure the service.
 # this script has NOT been tested.
-# 
+# https://komunity.komand.com/learn/article/server-administration/how-to-protect-ssh-and-apache-using-fail2ban-on-ubuntu-linux/
+#
 ##############################################
 
 # Force users to run installations as root.
