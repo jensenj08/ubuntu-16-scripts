@@ -22,30 +22,36 @@
 # 
 ##############################################
 
+# Force users to run installations as root.
+if [[ $EUID -ne 0 ]]; then
+   echo "ERROR: You must run this installation process as root!" 
+   exit 1
+fi
+
 # Update apt package index.
-sudo apt-get update
+apt-get update
 
 # Older versions of docker were called docker 
 # or docker-engine. If these are installed, 
 # they need to be removed.
-sudo apt-get -y remove \
+apt-get -y remove \
     docker \
     docker-engine \
     docker.io
 
 # Install packages to allow apt to use a
 # repository over HTTPS
-sudo apt-get -y install \
+apt-get -y install \
     apt-transport-https \
     ca-certificates \
     curl \
     software-properties-common
 
 # Add docker's official GPG key: 
-sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
 
 # Optionally, the key can be verfied with
-sudo apt-key fingerprint 0EBFCD88
+apt-key fingerprint 0EBFCD88
 
 # Setup a stable repository. You will always 
 # need the stable repository even if you want
@@ -57,20 +63,20 @@ sudo apt-key fingerprint 0EBFCD88
 #   - armhf
 #   - amd64
 #   - s390x
-sudo add-apt-repository \
+add-apt-repository \
     "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
      $(lsb_release -cs) \
      stable"
 
 # Install docker-ce.
-sudo apt-get update
+apt-get update
 # On production systems, you should install a 
 # specific version of docker-ce instead of just
 # using the newest version. 
-sudo apt-get -y install docker-ce
+apt-get -y install docker-ce
 # apt-get install docker-ce=<VERSION>
 
 # Test the installation of docker.
 # If everything is working properly, 
 # The user should get a message.
-sudo docker run hello-world
+docker run hello-world

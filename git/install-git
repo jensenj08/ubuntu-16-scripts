@@ -12,6 +12,12 @@
 # user information 
 ########################################
 
+# Force users to run installations as root.
+if [[ $EUID -ne 0 ]]; then
+   echo "ERROR: You must run this installation process as root!" 
+   exit 1
+fi
+
 # Configuration Values for:
 # --global user.email
 # --global user.name
@@ -27,9 +33,9 @@ echo "git config --global user.name <your name>:"
 NAME="Jeffrey Jensen"
 
 # Install git
-sudo apt-get update
-sudo apt-get install git
+apt-get update
+apt-get install git
 
 # Set user preferences.
-sudo git config --global user.email $EMAIL
-sudo git config --global user.name $NAME
+git config --global user.email $EMAIL
+git config --global user.name $NAME
