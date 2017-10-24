@@ -45,7 +45,7 @@ sudo apt-get -y install \
 sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
 
 # Optionally, the key can be verfied with
-# apt-key fingerprint 0EBFCD88
+sudo apt-key fingerprint 0EBFCD88
 
 # Setup a stable repository. You will always 
 # need the stable repository even if you want
@@ -67,8 +67,8 @@ sudo apt-get update
 # On production systems, you should install a 
 # specific version of docker-ce instead of just
 # using the newest version. 
-# apt-get install docker-ce=<VERSION>
 sudo apt-get -y install docker-ce
+# apt-get install docker-ce=<VERSION>
 
 # Test the installation of docker.
 # If everything is working properly, 
