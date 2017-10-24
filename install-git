@@ -20,20 +20,16 @@
 # can ignore the script until it's finished. 
 echo "Select an email to be associated with your git commits."
 echo "git config --global user.email <your@email.address>:"
-read EMAIL
+EMAIL="jensenj08@gmail.com"
 
 echo "Select a name to be associated with your git commits."
 echo "git config --global user.name <your name>:"
-read NAME
+NAME="Jeffrey Jensen"
 
 # Install git
-apt-get update
-apt-get install git
+sudo apt-get update
+sudo apt-get install git
 
 # Set user preferences.
-git config --global user.email $EMAIL
-git config --global user.name $NAME
-
-# Allow users to push to any
-# branch on this server. 
-git config --global receive.denyCurrentBranch ignore
+sudo git config --global user.email $EMAIL
+sudo git config --global user.name $NAME
