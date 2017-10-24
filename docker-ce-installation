@@ -28,11 +28,18 @@ apt-get update
 # Older versions of docker were called docker 
 # or docker-engine. If these are installed, 
 # they need to be removed.
-apt-get remove docker docker-engine docker.io
+apt-get -y remove \
+    docker \
+    docker-engine \
+    docker.io
 
 # Install packages to allow apt to use a
 # repository over HTTPS
-apt-get install apt-transport-https ca-certificates curl software-properties-common
+apt-get -y install \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    software-properties-common
 
 # Add docker's official GPG key: 
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
@@ -61,10 +68,9 @@ apt-get update
 # specific version of docker-ce instead of just
 # using the newest version. 
 # apt-get install docker-ce=<VERSION>
-apt-get install docker-ce
+apt-get -y install docker-ce
 
-echo "--------------------------------------------------"
-echo "Docker installation is complete."
-echo "Verify Docker CE is installed properly by running:" 
-echo "docker run hello-world"
-echo "--------------------------------------------------"
+# Test the installation of docker.
+# If everything is working properly, 
+# The user should get a message.
+docker run hello-world

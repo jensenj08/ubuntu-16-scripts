@@ -37,4 +37,3 @@ git config --global user.name $NAME
 # Allow users to push to any
 # branch on this server. 
 git config --global receive.denyCurrentBranch ignore
-
