@@ -23,19 +23,19 @@
 ##############################################
 
 # Update apt package index.
-apt-get update
+sudo apt-get update
 
 # Older versions of docker were called docker 
 # or docker-engine. If these are installed, 
 # they need to be removed.
-apt-get -y remove \
+sudo apt-get -y remove \
     docker \
     docker-engine \
     docker.io
 
 # Install packages to allow apt to use a
 # repository over HTTPS
-apt-get -y install \
+sudo apt-get -y install \
     apt-transport-https \
     ca-certificates \
     curl \
@@ -63,14 +63,14 @@ add-apt-repository \
      stable"
 
 # Install docker-ce.
-apt-get update
+sudo apt-get update
 # On production systems, you should install a 
 # specific version of docker-ce instead of just
 # using the newest version. 
 # apt-get install docker-ce=<VERSION>
-apt-get -y install docker-ce
+sudo apt-get -y install docker-ce
 
 # Test the installation of docker.
 # If everything is working properly, 
 # The user should get a message.
-docker run hello-world
+sudo docker run hello-world
