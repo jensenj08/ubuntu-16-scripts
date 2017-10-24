@@ -80,3 +80,15 @@ apt-get -y install docker-ce
 # If everything is working properly, 
 # The user should get a message.
 docker run hello-world
+
+# Log into docker
+echo "------------------------------------------"
+echo "INFO:"
+echo "If you don't have a docker account, you"
+echo "can login later after creating one with:"
+echo "sudo docker login. Not logging in will"
+echo "prevent you from using many of the pre-"
+echo "existing containers other users have "
+echo "created."
+echo "------------------------------------------"
+docker login
