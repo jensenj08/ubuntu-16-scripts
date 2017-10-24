@@ -30,5 +30,11 @@ read NAME
 apt-get update
 apt-get install git
 
+# Set user preferences.
 git config --global user.email $EMAIL
 git config --global user.name $NAME
+
+# Allow users to push to any
+# branch on this server. 
+git config --global receive.denyCurrentBranch ignore
+
