@@ -1,0 +1,21 @@
+#!/bin/bash
+#
+# Install Docker CE (Community Edition)
+# docker-ce
+#  
+# OS: Ubuntu 16.04.3 LTS
+# Author: Jeffrey Jensen
+# Email: jensenj08@gmail.com
+#
+# Description:
+# Install fail2ban and configure the service
+# 
+##############################################
+
+# Force users to run installations as root.
+if [[ $EUID -ne 0 ]]; then
+   echo "ERROR: You must run this installation process as root!" 
+   exit 1
+fi
+
+apt-get install fail2ban

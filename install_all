@@ -20,6 +20,29 @@ if [[ $EUID -ne 0 ]]; then
    exit 1
 fi
 
+echo "Thank you for choosing my docker machine setup with git."
+echo "Let's start with your git configuration."
+echo "What name do you want attached to your git commits? (ex. 'Ron Swanson')"
+read GIT_FULL_NAME
+
+echo "What is the email you would like to associate with git commits? (ex. 'rswanson@manly.com')"
+read GIT_EMAIL
+
+echo ""
+echo ""
+echo "Great! Now let's get some information about docker."
+echo "Although this information isn't required, we would like to log you in"
+echo "after your docker installation. Logging in will allow your to access"
+echo "the Docker Hub repositories, conviniant!"
+echo ""
+echo "If you don't have a Docker Hub account, you can sign up at: "
+echo "https://hub.docker.com/"
+echo "----------------------------------------------------------------------"
+echo "What is your Docker Hub Docker ID or email?"
+read DOCKER_EMAIL
+echo "Password:"
+read DOCKER_PASSWORD
+
 # Install git
 apt-get update
 apt-get install git
@@ -29,7 +52,7 @@ git clone https://github.com/jensenj08/ubuntu-16-scripts
 cd ubuntu-16-scripts
 
 # Re-run git installer
-bash git/install-git
+bash git/install-git $GIT_FULL_NAME $GIT_EMAIL
 
 # Install docker
-bash docker-ce/install-docker-ce
+bash docker-ce/install-docker-ce $DOCKER_EMAIL $DOCKER_PASSWORD

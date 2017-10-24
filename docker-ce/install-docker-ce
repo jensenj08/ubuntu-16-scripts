@@ -28,6 +28,15 @@ if [[ $EUID -ne 0 ]]; then
    exit 1
 fi
 
+if [ -z "$1" || -z "$2" ]; then
+    echo "Please provide arguments in the format: "
+    echo "install-docker-ce <docker-hub-id> <docker-hub-password>"
+    exit 1
+fi
+
+DOCKER_HUB_ID=$1
+DOCKER_HUB_PASSWORD=$2 
+
 # Update apt package index.
 apt-get update
 
@@ -91,4 +100,4 @@ echo "prevent you from using many of the pre-"
 echo "existing containers other users have "
 echo "created."
 echo "------------------------------------------"
-docker login
+docker login -u $DOCKER_HUB_ID -p $DOCKER_HUB_PASSWORD

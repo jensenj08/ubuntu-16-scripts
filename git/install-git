@@ -18,19 +18,23 @@ if [[ $EUID -ne 0 ]]; then
    exit 1
 fi
 
+if [ -z "$1" || -z "$2" ]; then
+    echo "Please provide arguments in the format: "
+    echo "install-git <full-name> <email-address>"
+    exit 1
+fi
+
 # Configuration Values for:
 # --global user.email
 # --global user.name
 # We want to get these values before 
 # running the installation, so that the user
 # can ignore the script until it's finished. 
-echo "Select an email to be associated with your git commits."
-echo "git config --global user.email <your@email.address>:"
-EMAIL="jensenj08@gmail.com"
+NAME=$1
+EMAIL=$2
 
-echo "Select a name to be associated with your git commits."
-echo "git config --global user.name <your name>:"
-NAME="Jeffrey Jensen"
+
+
 
 # Install git
 apt-get update
