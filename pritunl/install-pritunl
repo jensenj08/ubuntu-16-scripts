@@ -1,0 +1,88 @@
+#!/bin/bash
+#
+# Install Pritunl
+# pritunl
+#
+# OS: Ubuntu 16.04.3 LTS
+# Author: Jeffrey Jensen
+# Email: jensenj08@gmail.com
+# 
+# Description: 
+# Install pritunl and mongodb which is
+# a dependency.
+# 
+########################################
+
+# Add the repository for mongodb.
+add-apt-repository 'deb http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.0 multiverse'
+
+# Add the pritunl repo as well.
+add-apt-repository 'deb http://repo.pritunl.com/stable/apt trusty main'
+
+# Add key servers for the repos so that apt can
+# validate the content that it downloads.
+apt-key adv --keyserver hkp://keyserver.ubuntu.com --recv 7F0CEB10
+apt-key adv --keyserver hkp://keyserver.ubuntu.com --recv CF8E292A
+
+# Now that we added repos, pull newly available repos. 
+apt-get update
+
+# Install pritunl and mongodb.
+apt-get -y install pritunl mongodb-org
+
+# Start mongodb. 
+systemctl start mongod
+
+# Start pritunl.
+systemctl start pritunl
+
+# Display the status for mongodb.
+systemctl status mongod
+
+# Display the status for pritunl.
+systemctl status pritunl
+
+# Make sure the services begin on startup.
+systemctl enable pritunl mongod
+
+# Open file imits
+sudo sh -c 'echo "* hard nofile 64000" >> /etc/security/limits.conf'
+sudo sh -c 'echo "* soft nofile 64000" >> /etc/security/limits.conf'
+sudo sh -c 'echo "root hard nofile 64000" >> /etc/security/limits.conf'
+sudo sh -c 'echo "root soft nofile 64000" >> /etc/security/limits.conf'
+
+# Set up the pritunl key. 
+pritunl setup-key
+
+ifconfig
+
+echo "---------------------------------------"
+echo "INSTRUCTIONS:::"
+echo "---------------------------------------"
+echo "You should be able to get to the gui manager"
+echo "at http://<your-ip>/login"
+echo "User: pritunl"
+echo "Pass: pritunl"
+echo "---------------------------------------"
+echo "Username: <your-new-username>"
+echo "Public Address: <your-domain-name>"
+echo "Web Console port: 443"
+echo "Password: <something-secure>"
+echo "Lets Encrypt Domain: <just-leave-this-blank>"
+echo "---------------------------------------"
+echo "Now you can add an organization and users."
+echo "Add a server."
+echo "Name: <whatever>"
+echo "Port: <something-crazy>"
+echo "Protocol: UDP"
+echo "DNS: <your-dns>|<some-public-dns>"
+echo "---------------------------------------"
+echo "Attach your organization to the vpn."
+echo "Remove 0.0.0.0/0 route. (OPTIONAL)"
+echo "Add Route: <your-local-network-address>"
+echo "Start Server"
+echo "Have fun!"
+
+
+
+
