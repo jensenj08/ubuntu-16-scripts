@@ -1,0 +1,41 @@
+#!/bin/bash
+#
+# Install all for my base docker image
+# git
+# docker-ce
+#  
+# OS: Ubuntu 16.04.3 LTS
+# Author: Jeffrey Jensen
+# Email: jensenj08@gmail.com
+#
+# Description:
+# Install git and docker for my base docker
+# image. This script is NOT tested yet.
+# 
+##############################################
+
+# Force users to run installations as root.
+if [[ $EUID -ne 0 ]]; then
+   echo "ERROR: You must run this installation process as root!" 
+   exit 1
+fi
+
+# Basic git configuration
+echo "Thank you for choosing my docker machine setup with git."
+echo "Let's start with your git configuration."
+echo "What name do you want attached to your git commits? (ex. 'Ron Swanson')"
+read GIT_FULL_NAME
+
+echo "What is the email you would like to associate with git commits? (ex. 'rswanson@manly.com')"
+read GIT_EMAIL
+
+# Install git
+apt-get update
+apt-get install git
+
+# Clone installation scripts.
+git clone https://github.com/jensenj08/ubuntu-16-scripts
+cd ubuntu-16-scripts
+
+# Re-run git installer
+bash git/install-git $GIT_FULL_NAME $GIT_EMAIL
