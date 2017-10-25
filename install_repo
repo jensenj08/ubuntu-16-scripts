@@ -3,7 +3,7 @@
 # Install all for my base docker image
 # git
 # docker-ce
-#  
+#
 # OS: Ubuntu 16.04.3 LTS
 # Author: Jeffrey Jensen
 # Email: jensenj08@gmail.com
@@ -11,12 +11,12 @@
 # Description:
 # Install git and docker for my base docker
 # image. This script is NOT tested yet.
-# 
+#
 ##############################################
 
 # Force users to run installations as root.
 if [[ $EUID -ne 0 ]]; then
-   echo "ERROR: You must run this installation process as root!" 
+   echo "ERROR: You must run this installation process as root!"
    exit 1
 fi
 
