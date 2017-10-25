@@ -13,22 +13,19 @@
 # 
 ########################################
 
-# Add the repository for mongodb.
-add-apt-repository 'deb http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.0 multiverse'
+# Add the repository for mongodb, and it's key.
+apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 0C49F3730359A14518585931BC711F9BA15703C6
+add-apt-repository 'deb http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.4 multiverse'
 
-# Add the pritunl repo as well.
-add-apt-repository 'deb http://repo.pritunl.com/stable/apt trusty main'
-
-# Add key servers for the repos so that apt can
-# validate the content that it downloads.
-apt-key adv --keyserver hkp://keyserver.ubuntu.com --recv 7F0CEB10
-apt-key adv --keyserver hkp://keyserver.ubuntu.com --recv CF8E292A
+# Add the pritunl repo as well as well as it's key.
+apt-key adv --keyserver hkp://keyserver.ubuntu.com --recv 7568D9BB55FF9E5287D586017AE645C0CF8E292A
+add-apt-repository 'deb http://repo.pritunl.com/stable/apt xenial main'
 
 # Now that we added repos, pull newly available repos. 
-apt-get update
+apt-get -y update
 
 # Install pritunl and mongodb.
-apt-get -y install pritunl mongodb-org
+apt-get -y install pritunl mongodb-org python-pip
 
 # Start mongodb. 
 systemctl start mongod
@@ -51,16 +48,18 @@ sudo sh -c 'echo "* soft nofile 64000" >> /etc/security/limits.conf'
 sudo sh -c 'echo "root hard nofile 64000" >> /etc/security/limits.conf'
 sudo sh -c 'echo "root soft nofile 64000" >> /etc/security/limits.conf'
 
-# Set up the pritunl key. 
-pritunl setup-key
-
-ifconfig
-
 echo "---------------------------------------"
-echo "INSTRUCTIONS:::"
+ifconfig
+echo "---------------------------------------"
+echo "INSTRUCTIONS::"
+echo "---------------------------------------"
+echo "Copy this key: "
+pritunl setup-key
 echo "---------------------------------------"
 echo "You should be able to get to the gui manager"
-echo "at http://<your-ip>/login"
+echo "at http://<your-ip>/ and then paste your key in."
+echo "---------------------------------------"
+echo "Sign in:"
 echo "User: pritunl"
 echo "Pass: pritunl"
 echo "---------------------------------------"
@@ -82,7 +81,3 @@ echo "Remove 0.0.0.0/0 route. (OPTIONAL)"
 echo "Add Route: <your-local-network-address>"
 echo "Start Server"
 echo "Have fun!"
-
-
-
-
