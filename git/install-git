@@ -18,7 +18,7 @@ if [[ $EUID -ne 0 ]]; then
    exit 1
 fi
 
-if [ -z "$1" || -z "$2" ]; then
+if [[ -z "$1" || -z "$2" ]]; then
     echo "Please provide arguments in the format: "
     echo "install-git <full-name> <email-address>"
     exit 1
