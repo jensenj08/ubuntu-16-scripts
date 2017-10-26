@@ -4,7 +4,7 @@ This works with ubuntu 16.04.
 In order to get to the admin domain from the root domain automatically. If you want to type <pi-hole-domain> and be redirected to <pi-hole-domain>/admin, this is how you do it.
 
 ### Prerequisites
-You need to have a DNS server, or entries in your local hosts file which will forward the host that you're using to the domian of the pi-hole.
+You need to have a DNS server, or entries in your local hosts file which will forward the host that you're using to the domian of the pi-hole. A dns server can be setup on the pihole using my instructions for use-pi-hole-as-lan-dns.md
 
 ## Create new web config for server
 ```
