@@ -1,0 +1,28 @@
+#!/bin/bash
+#
+# Install Zoneminder
+# zoneminder
+#
+# OS: Ubuntu 16.04.3 LTS
+# Author: Jeffrey Jensen
+# Email: jensenj08@gmail.com
+#
+# Description:
+# Install zoneminder with all the pesky bits
+#
+##############################################
+
+apt-get -y update
+tasksel install lamp-server
+add-apt-repository ppa:iconnor/zoneminder
+apt-get update
+apt-get upgrade
+apt-get dist-upgrade
+rm /etc/mysql/my.cnf
+cp /etc/mysql/mysql.conf.d/mysqld.cnf /etc/mysql/my.cnf
+
+echo "Step1 complete. Now you need to change some mysql settings."
+echo "To change MySQL settings:"
+echo "nano /etc/mysql/my.cnf"
+echo "In the [mysqld] section add the following"
+echo "sql_mode = NO_ENGINE_SUBSTITUTION"
