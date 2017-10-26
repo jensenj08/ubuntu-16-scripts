@@ -2,6 +2,8 @@
 
 https://discourse.pi-hole.net/t/howto-using-pi-hole-as-lan-dns-server/533
 
+I basically ripped the info out of the above link and changed it a little... thanks for the post llauren.
+
 With a little configuration, you can use your pi-hole as the DNS server for your LAN, if, for example, your router isn't doing a very good job serving local names. Here's how:
 
 ## Create a new config file
