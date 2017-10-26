@@ -12,6 +12,8 @@
 #
 ##############################################
 
+# https://zoneminder.readthedocs.io/en/stable/installationguide/ubuntu.html
+
 systemctl restart mysql
 apt-get install zoneminder
 mysql -uroot -p < /usr/share/zoneminder/db/zm_create.sql

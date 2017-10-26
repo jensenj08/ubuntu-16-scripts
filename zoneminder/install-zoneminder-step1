@@ -12,6 +12,8 @@
 #
 ##############################################
 
+# https://zoneminder.readthedocs.io/en/stable/installationguide/ubuntu.html 
+
 apt-get -y update
 tasksel install lamp-server
 add-apt-repository ppa:iconnor/zoneminder
