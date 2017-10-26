@@ -36,8 +36,6 @@ If you want to, you can just add the fqdn (fully qualified domain name).
 ```
 Substitute "your.lan" for whatever you want your domain name to be.
 
-On your DHCP server (most likely your router, though pi-hole indeed can be configured into one), you'll also need to set your search domain to whatever "your.lan" corresponds to.
-
 ## Restart service
 Finally, restart your name server:
 ```
