@@ -22,9 +22,10 @@ fi
 # Accept user input.
 IP=$1
 FQDN=$2
-
+ENTRY=$IP" "$FQDN
+echo $ENTRY
 # Append to the configuration file.
-echo "$IP $FQDN" >> /etc/pihole/lan.list
+echo $ENTRY | tee /etc/pihole/lan.list
 
 # Restart the service
 sudo service lighttpd restart
