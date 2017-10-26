@@ -3,6 +3,9 @@ This works with ubuntu 16.04.
 
 In order to get to the admin domain from the root domain automatically. If you want to type <pi-hole-domain> and be redirected to <pi-hole-domain>/admin, this is how you do it.
 
+### Prerequisites
+You need to have a DNS server, or entries in your local hosts file which will forward the host that you're using to the domian of the pi-hole.
+
 ## Create new web config for server
 ```
 sudo nano /etc/lighttpd/external.conf
@@ -21,5 +24,5 @@ $HTTP["host"] == "<pi-hole-domain>" {
 ```
 Once this is complete, restart the server.
 ```
-sudo service httpd restart
+sudo service lighttpd restart
 ```
