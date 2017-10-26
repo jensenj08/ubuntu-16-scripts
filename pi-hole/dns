@@ -29,3 +29,6 @@ echo $ENTRY >> /etc/pihole/lan.list
 
 # Restart the service
 service lighttpd restart
+
+echo "If adding another dns entry for this machine, you wll need to update the lighttpd configuration to include a redirect to the admin page."
+echo "sudo nano /etc/lighttpd/external.conf"
