@@ -28,7 +28,7 @@ systemctl enable zoneminder
 systemctl start zoneminder
 
 # Ghetto rig these permissions.
-chod 777 /dev/video0
+chmod 777 /dev/video0
 
 echo "Now you need to edit the php.ini timezone."
 echo "nano /etc/php/7.0/apache2/php.ini"
