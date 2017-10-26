@@ -25,6 +25,9 @@ a2enmod rewrite
 systemctl enable zoneminder
 systemctl start zoneminder
 
+# Ghetto rig these permissions.
+chod 777 /dev/video0
+
 echo "Now you need to edit the php.ini timezone."
 echo "nano /etc/php/7.0/apache2/php.ini"
 echo "[Date]"
@@ -32,3 +35,4 @@ echo "; Defines the default timezone used by the date functions"
 echo "; http://php.net/date.timezone"
 echo "date.timezone = America/New_York"
 echo "systemctl reload apache2"
+echo ""
