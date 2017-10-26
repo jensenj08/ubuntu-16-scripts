@@ -1,0 +1,30 @@
+#!/bin/bash
+# PiHole + DNS
+# OS: Ubuntu 16.04.3 LTS
+# Author: Jeffrey Jensen
+# Email: jensenj08@gmail.com
+#
+# Description:
+# Add a custom dns entry onto pi-hole
+#
+##############################################
+
+if [[ $EUID -ne 0 ]]; then
+   echo "ERROR: You must this dns process as root!"
+   exit 1
+fi
+
+if [ "$#" -ne 2 ]; then
+    echo "Usage: dns <ip.address:port> <domain-name>"
+fi
+
+# Add a dns entry after following the use-pi-hole-as-lan tutorial.
+# Accept user input.
+IP=$1
+FQDN=$2
+
+# Append to the configuration file.
+echo "$IP $FQDN" >> /etc/pihole/lan.list
+
+# Restart the service
+sudo service lighttpd restart
